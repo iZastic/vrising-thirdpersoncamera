@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace ThirdPersonCamera
 {
+    [Wetstone.API.Reloadable]
     [BepInProcess("VRising.exe")]
     [BepInDependency("xyz.molenzwiebel.wetstone")]
     [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
@@ -27,7 +28,7 @@ namespace ThirdPersonCamera
             Logger = Log;
 
             lookAtOffsetX = Config.Bind("Default", "LookAtOffsetX", .3f, "(World Coordinates) Used to offset the camera look at position when zoomed in");
-            lookAtOffsetY = Config.Bind("Default", "LookAtOffsetY", 1f, "(World Coordinates) Used to offset the camera look at position when zoomed in");
+            lookAtOffsetY = Config.Bind("Default", "LookAtOffsetY", .8f, "(World Coordinates) Used to offset the camera look at position when zoomed in");
             aimOffsetX = Config.Bind("Default", "AimOffsetX", 0, "(Screen Pixels) Used to offset the mouse aim position from the center of the screen when in combat mode");
             aimOffsetY = Config.Bind("Default", "AimOffsetY", (int)(Screen.height * 0.1f), "(Screen Pixels) Used to offset the mouse aim position from the center of the screen when in combat mode");
             mouseLockDelay = Config.Bind("Default", "MouseLockDelay", 150, "(Milliseconds) Delay before combat mode is used when holding down the camera rotate button");

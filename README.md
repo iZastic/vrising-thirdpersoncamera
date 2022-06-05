@@ -24,6 +24,9 @@ Post an issue on [GitHub](https://github.com/iZastic/vrising-thirdpersoncamera/i
 
 ### Changelog
 
+- **1.1.2**
+    - Fixed an issue with camera twitching
+    - Fixed an issue where look offsets were only applied at 50% value
 - **1.1.1**
     - Fixed an issue with right clicking while a menu is open
 - **1.0.0**

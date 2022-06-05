@@ -1,6 +1,6 @@
 {
     "name": "ThirdPersonCamera",
-    "version_number": "1.1.1",
+    "version_number": "1.1.2",
     "website_url": "https://github.com/iZastic/vrising-thirdpersoncamera",
     "description": "A third person camera mod for VRising",
     "dependencies": [

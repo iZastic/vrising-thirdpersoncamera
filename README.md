@@ -16,7 +16,7 @@ The combat mode keybinding can be changed from within the game.
 
 Join the [V Rising Mod Community](https://discord.gg/r87Vdez2Br), and ping `@iZastic#0365`.
 
-Post an issue on [GitHub](https://github.com/iZastic/vrising-thirdpersoncamera).
+Post an issue on [GitHub](https://github.com/iZastic/vrising-thirdpersoncamera/issues).
 
 ### Known Issues
 - Zooming in to far causes some world space UI elements to become fully transparent

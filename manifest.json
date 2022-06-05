@@ -1,0 +1,9 @@
+{
+    "name": "ThirdPersonCamera",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/iZastic/vrising-thirdpersoncamera",
+    "description": "A third person camera mod for VRising",
+    "dependencies": [
+        "molenzwiebel-Wetstone-1.1.0"
+    ]
+}

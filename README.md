@@ -24,4 +24,9 @@ Post an issue on [GitHub](https://github.com/iZastic/vrising-thirdpersoncamera/i
 
 ### Changelog
 
-- **1.0.0** Initial release
+- **1.0.0**
+    - Added config options
+    - Added aim offsets so the character isn't always hovered
+    - Fixed action and emote wheel in combat mode
+- **1.0.0**
+    - Initial release

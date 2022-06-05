@@ -1,8 +1,10 @@
 ﻿using BepInEx;
+using BepInEx.Configuration;
 using BepInEx.IL2CPP;
 using BepInEx.Logging;
 using HarmonyLib;
 using System.Reflection;
+using UnityEngine;
 
 namespace ThirdPersonCamera
 {
@@ -12,12 +14,23 @@ namespace ThirdPersonCamera
     public class Plugin : BasePlugin
     {
         public static ManualLogSource Logger;
+        public static ConfigEntry<float> lookAtOffsetX;
+        public static ConfigEntry<float> lookAtOffsetY;
+        public static ConfigEntry<int> aimOffsetX;
+        public static ConfigEntry<int> aimOffsetY;
+        public static ConfigEntry<int> mouseLockDelay;
 
         private static Harmony harmony;
 
         public override unsafe void Load()
         {
             Logger = Log;
+
+            lookAtOffsetX = Config.Bind("Default", "LookAtOffsetX", .3f, "(World Coordinates) Used to offset the camera look at position when zoomed in");
+            lookAtOffsetY = Config.Bind("Default", "LookAtOffsetY", 1f, "(World Coordinates) Used to offset the camera look at position when zoomed in");
+            aimOffsetX = Config.Bind("Default", "AimOffsetX", 0, "(Screen Pixels) Used to offset the mouse aim position from the center of the screen when in combat mode");
+            aimOffsetY = Config.Bind("Default", "AimOffsetY", (int)(Screen.height * 0.1f), "(Screen Pixels) Used to offset the mouse aim position from the center of the screen when in combat mode");
+            mouseLockDelay = Config.Bind("Default", "MouseLockDelay", 150, "(Milliseconds) Delay before combat mode is used when holding down the camera rotate button");
 
             // Initialize custom classes
             ThirdPersonCamera.Initialize();

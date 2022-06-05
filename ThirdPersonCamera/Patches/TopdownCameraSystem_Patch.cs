@@ -68,8 +68,8 @@ namespace ThirdPersonCamera
             // Update look at offset to view over the shoulder when zoomed in
             var zoomed = cameraState->Current.Zoom > 0;
             var lookAtLerp = zoomed ? cameraState->Current.Zoom / cameraState->ZoomSettings.MaxZoom : 0;
-            cameraState->Current.NormalizedLookAtOffset.y = zoomed ? Mathf.Lerp(1f, 0f, lookAtLerp) : 0;
-            cameraState->Current.NormalizedLookAtOffset.x = zoomed ? Mathf.Lerp(0.3f, 0f, lookAtLerp) : 0;
+            cameraState->Current.NormalizedLookAtOffset.x = zoomed ? Mathf.Lerp(Plugin.lookAtOffsetX.Value, 0f, lookAtLerp) : 0;
+            cameraState->Current.NormalizedLookAtOffset.y = zoomed ? Mathf.Lerp(Plugin.lookAtOffsetY.Value, 0f, lookAtLerp) : 0;
 
             UpdateCameraInputsOriginal!(_this, cameraData, freezeMouseInputs, cameraState);
         }

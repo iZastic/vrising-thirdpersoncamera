@@ -24,6 +24,8 @@ Post an issue on [GitHub](https://github.com/iZastic/vrising-thirdpersoncamera/i
 
 ### Changelog
 
+- **1.1.1**
+    - Fixed an issue with right clicking while a menu is open
 - **1.0.0**
     - Added config options
     - Added aim offsets so the character isn't always hovered

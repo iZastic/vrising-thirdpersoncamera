@@ -28,11 +28,15 @@ namespace ThirdPersonCamera
             ThirdPersonCamera.UpdateRotateCameraPressed(ref inputState);
 
             bool rotateCameraPressed = inputState.IsInputPressed(InputFlag.RotateCamera);
-            if (!rotateCameraPressed || (DateTime.Now - cursorLockStartTime).TotalMilliseconds >= Plugin.mouseLockDelay.Value)
+            double rotateCameraPressedTime = (DateTime.Now - cursorLockStartTime).TotalMilliseconds;
+
+            if (!rotateCameraPressed || rotateCameraPressedTime >= Plugin.mouseLockDelay.Value)
                 ThirdPersonCamera.UpdateCursorVisible(ref inputState);
 
             if (!rotateCameraPressed) return;
-            ThirdPersonCamera.UpdateCursorPosition();
+
+            if (!ThirdPersonCamera.isMenuOpen)
+                ThirdPersonCamera.UpdateCursorPosition();
         }
     }
 }

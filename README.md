@@ -24,6 +24,9 @@ Post an issue on [GitHub](https://github.com/iZastic/vrising-thirdpersoncamera/i
 
 ### Changelog
 
+- **1.1.3**
+    - Added config options for camera pitch and zoom
+    - Added support for first person view by setting CameraMinZoom to a negative value
 - **1.1.2**
     - Fixed an issue with camera twitching
     - Fixed an issue where look offsets were only applied at 50% value

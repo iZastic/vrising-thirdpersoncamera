@@ -57,19 +57,19 @@ namespace ThirdPersonCamera
         private static unsafe void UpdateCameraInputsHook(IntPtr _this, TopdownCamera* cameraData, bool freezeMouseInputs, TopdownCameraState* cameraState)
         {
             // Force updating the current camera states zoom settings
-            cameraState->ZoomSettings.MaxPitch = 1.57f;
-            cameraState->ZoomSettings.MinPitch = 0.17f;
-            cameraState->ZoomSettings.MaxZoom = 15f;
-            cameraState->ZoomSettings.MinZoom = 2f;
+            cameraState->ZoomSettings.MaxPitch = Plugin.cameraMaxPitch.Value;
+            cameraState->ZoomSettings.MinPitch = Plugin.cameraMinPitch.Value;
+            cameraState->ZoomSettings.MaxZoom = Plugin.cameraMaxZoom.Value;
+            cameraState->ZoomSettings.MinZoom = Plugin.cameraMinZoom.Value;
 
             // Update camera standard zoom settings to equal new zoom settings
             cameraData->StandardZoomSettings = cameraState->ZoomSettings;
 
             // Update look at offset to view over the shoulder when zoomed in
-            var zoomed = cameraState->Current.Zoom > 0;
-            var lookAtLerp = zoomed ? (cameraState->Current.Zoom - cameraState->ZoomSettings.MinZoom) / (cameraState->ZoomSettings.MaxZoom - cameraState->ZoomSettings.MinZoom) : 0;
-            var lookOffsetX = zoomed ? Mathf.Lerp(Plugin.lookAtOffsetX.Value, 0f, lookAtLerp) : 0f;
-            var lookOffsetY = zoomed ? Mathf.Lerp(Plugin.lookAtOffsetY.Value, 0f, lookAtLerp) : 0f;
+            var behindCharacter = cameraState->Current.Zoom > 0;
+            var lookAtLerp = (cameraState->Current.Zoom - cameraState->ZoomSettings.MinZoom) / (cameraState->ZoomSettings.MaxZoom - cameraState->ZoomSettings.MinZoom);
+            var lookOffsetX = behindCharacter ? Mathf.Lerp(Plugin.lookAtOffsetX.Value, 0f, lookAtLerp) : 0f;
+            var lookOffsetY = behindCharacter ? Mathf.Lerp(Plugin.lookAtOffsetY.Value, 0f, lookAtLerp) : 0.8f;
 
             cameraState->LastTarget.NormalizedLookAtOffset.x = lookOffsetX * 2;
             cameraState->LastTarget.NormalizedLookAtOffset.y = lookOffsetY * 2;
